@@ -4,26 +4,29 @@ import path from 'path';
 // Configure storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Files will be saved in 'uploads' folder
+    cb(null, 'uploads/sounds/');
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, 'sound-' + uniqueSuffix + path.extname(file.originalname));
   }
 });
 
-// File filter for audio/video
+// File filter for audio files
 const fileFilter = (req, file, cb) => {
-  const allowedTypes = ['audio/mpeg', 'audio/wav', 'video/mp4', 'video/quicktime'];
+  const allowedTypes = ['audio/mpeg', 'audio/wav', 'audio/ogg', 'audio/aac', 'audio/mp3'];
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cb(new Error('Invalid file type. Only audio/video files are allowed!'), false);
+    cb(new Error('Invalid file type. Only audio files are allowed.'), false);
   }
 };
 
-export const upload = multer({ 
+// Initialize Multer
+export const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
-  limits: { fileSize: 50 * 1024 * 1024 } // 50MB limit
+  limits: {
+    fileSize: 1024 * 1024 * 10 // 10MB limit
+  }
 });
