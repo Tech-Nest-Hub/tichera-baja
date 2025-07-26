@@ -1,4 +1,4 @@
-import Sound from "../models/Sound.ts";
+import Sound from "../models/Sound.js";
 
 export const getAllSounds = async (req, res) => {
   try {

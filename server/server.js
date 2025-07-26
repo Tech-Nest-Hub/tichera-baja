@@ -8,7 +8,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { ServerConnection } from '../miscellanous/mongodb.js';
-
+import soundRoutes  from "../routes/sounds.js";
 
 
 // Configuration 
@@ -25,6 +25,8 @@ app.use(cors({
   origin: 'http://localhost:5173', 
   credentials: true, 
 }));
+
+app.use('/api/sounds', soundRoutes);
 
 ServerConnection();
 

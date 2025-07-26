@@ -1,15 +1,16 @@
 // models/Sound.ts
-import mongoose, { Document } from 'mongoose';
+import mongoose from 'mongoose';
 
-export interface ISound extends Document {
-    name: string;
-    url: string;
-}
+
 
 const SoundSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    avatar:{
+        type: String,
+        default: ''
     },
     url: {
         type: String,
@@ -19,5 +20,5 @@ const SoundSchema = new mongoose.Schema({
     { timestamps: true }
 );
 
-const Sound = mongoose.model<ISound>('Sound', SoundSchema);
+const Sound = mongoose.model('Sound', SoundSchema);
 export default Sound
