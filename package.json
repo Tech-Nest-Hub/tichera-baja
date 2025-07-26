@@ -1,0 +1,31 @@
+{
+  "name": "tichera-baja-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tech-Nest-Hub/tichera-baja.git"
+  },
+  "author": "GhostAakash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tech-Nest-Hub/tichera-baja/issues"
+  },
+  "homepage": "https://github.com/Tech-Nest-Hub/tichera-baja#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.16.5",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10"
+  }
+}
