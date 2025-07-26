@@ -25,8 +25,16 @@ app.use(cors({
   origin: 'http://localhost:5173', 
   credentials: true, 
 }));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/api/sounds', soundRoutes);
+
+
+app.use ('/', (req, res) => {
+    res.send('Hello from server')
+    res.status(200);
+    res.headers('Content-Type', 'text/plain'); 
+})
 
 ServerConnection();
 

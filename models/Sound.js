@@ -1,8 +1,6 @@
 // models/Sound.ts
 import mongoose from 'mongoose';
 
-
-
 const SoundSchema = new mongoose.Schema({
     name: {
         type: String,
