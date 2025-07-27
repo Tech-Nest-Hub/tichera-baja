@@ -25,7 +25,8 @@ const corsOptions = {
   origin: [
     'http://localhost:5173', // Development
     'https://tichera-baja.onrender.com/', // Production
-    'https://tichera-baja-frontend.vercel.app' // Example - replace with your actual frontend URL
+    'https://tichera-baja-frontend.vercel.app',// Example - replace with your actual frontend URL
+    'chrome-extension://bkbgclnmgngopbeodmpjjfojnfdimpcb'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
