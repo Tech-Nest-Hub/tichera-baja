@@ -21,10 +21,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Allow frontend origin (Vite default is localhost:5173)
-app.use(cors({
-  origin: 'http://localhost:5173', 
-  credentials: true, 
-}));
+const corsOptions = {
+  origin: [
+    'http://localhost:5173', // Development
+    'https://tichera-baja.onrender.com/', // Production
+    'https://tichera-baja-frontend.vercel.app' // Example - replace with your actual frontend URL
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 app.use('/api/uploads', express.static('uploads'));
 
 app.use('/api/sounds', soundRoutes);
