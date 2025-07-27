@@ -34,7 +34,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use('/api/uploads', express.static('uploads'));
+app.use(express.json())
+app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/sounds', soundRoutes);
 
